@@ -1,0 +1,10 @@
+#!/bin/bash
+ 
+result=`mysql -h $dbHost --user=$dbUser --password=$dbPassword --skip-column-names -e "select id from mydb.mytable where myattribute = 3"`
+ 
+items=$(echo $result | tr " " "\n")
+ 
+for item in $items
+do
+    echo "$item"
+done
